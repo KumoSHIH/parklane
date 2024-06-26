@@ -148,10 +148,7 @@
         $('.time div').html(element);
       }
     });
-    
-    map.addListener('click', function(event) {
-      console.log(event);
-    });
+
     // 6/20 修改
     // map.addListener('drag', function() {
     //   data2.forEach(function(ele,idx){
@@ -163,7 +160,6 @@
     //     }
     //   })
     // });
-    
   }
 
   async function getData(apiUrl) {
@@ -192,10 +188,6 @@
       let pos = { lat: item.latitude, lng: item.longitude };
       let imgMarker;
       let dot;
-
-      // 6/20 修改
-      item.visible = false;
-      item.index = index;
 
       function setMarker() {
         let imgPos = {};
@@ -242,63 +234,40 @@
         // 點擊出現圖片 & 切換右側的資訊欄
         dot.addListener('click',function(e){
 
-          // 6/20 修改
-          if(item.visible === false) {
-            item.visible = true
-            // console.log(item.visible);
-            data.forEach(function(ele,idx){
-              if(item.index !== idx) {
-                ele.visible = false;
-              }
-            })
+          // 修改其他的圖片標記的層級
+          markersImg.forEach(function(item,index){
+            markersImg[index].setVisible(false);
+          });
+          markersDot.forEach(function(item,index){
+            // originMarker.setZIndex(0);
+            markersDot[index].setZIndex(0);
+            markersDot[index].setIcon(locationDot);
+          });
+          
+          // 點擊的這個顯示在最上層
+          imgMarker.setVisible(true);
+
+          if(flag == pos)
+          {
+            dot.setIcon(locationDot);    
+            markersImg[index].setVisible(false);        
             
-            // 修改其他的圖片標記的層級
-            markersImg.forEach(function(item,index){
-              markersImg[index].setVisible(false);
-            });
-            markersDot.forEach(function(item,index){
-              // originMarker.setZIndex(0);
-              markersDot[index].setZIndex(0);
-              markersDot[index].setIcon(locationDot);
-            });
-            
-            // 點擊的這個顯示在最上層
-            imgMarker.setVisible(true);
-
-            if(flag == pos)
-            {
-              dot.setIcon(locationDot);    
-              markersImg[index].setVisible(false);        
-              
-              return false;
-            }
-            else
-            {
-              if($(window).width() <= 1200) {
-                dot.setIcon(locationImgMobile);
-              }
-              else {
-                dot.setIcon(locationImg);
-              }     
-            }
-
-            flag = pos;
-
-            dot.setPosition(pos);
-            dot.setZIndex(1);
+            return false;
           }
-          // 重複點擊關閉
-          else{
-            item.visible = false
-            markersImg[item.index].setVisible(true);
+          else
+          {
             if($(window).width() <= 1200) {
               dot.setIcon(locationImgMobile);
             }
             else {
               dot.setIcon(locationImg);
-            } 
-            dot.setZIndex(1);
+            }     
           }
+
+          flag = pos;
+
+          dot.setPosition(pos);
+          dot.setZIndex(1);
 
           // 計算兩點的距離
           let directionsService = new google.maps.DirectionsService();

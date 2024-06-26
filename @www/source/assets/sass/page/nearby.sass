@@ -1,0 +1,283 @@
+@import ../common/base/_variable
+@import ../common/base/_mixin
+
+.nearby
+  .hd 
+    top: 0
+    opacity: 1
+  .common-content
+    height: calc(100vh - 200px)
+    height: calc((var(--vh, 1vh) * 100) - 200px) 
+    +rwdmax(1200)
+      height: calc(100vh - 235px)
+      height: calc((var(--vh, 1vh) * 100) - 235px) 
+    +rwdmaxH(800)
+      margin-top: 80px
+      height: calc(100vh - 155px)
+      height: calc((var(--vh, 1vh) * 100) - 155px)
+    +rwdmax(767)
+      margin-top: 125px
+      margin-left: auto
+      width: 95%
+      height: calc(100vh - 200px)
+      height: calc((var(--vh, 1vh) * 100) - 200px) 
+      main 
+        display: flex
+        justify-content: center
+        align-items: center
+  .slide-wrap
+    max-width: 410px
+    width: 100%
+    box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.16)
+    transition: .3s ease-in-out
+    &:hover 
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16)
+      transform: scale(1.1,1.1)
+      .bottom
+        .text
+          h2 
+            color: #ff5087
+          p 
+            line-height: px(22)
+            font-size: px(16)
+          +rwdmax(1500)
+            p 
+              line-height: 18px
+              font-size: px(14)
+          +rwdmax(767)
+            p 
+              font-size: px(12)
+              line-height: 14px
+    .photo
+      position: relative
+      padding-bottom: 100%
+      overflow: hidden
+      &-wrap 
+        width: 100%
+        height: 100%
+        +posCenter
+    .bottom
+      padding: 20px
+      background-color: #fff
+      display: flex
+      flex-direction: column
+      position: relative
+      +rwdmax(767)
+        padding: 20px 15px
+      +rwdmax(380)
+        padding: 15px
+      .text
+        text-align: left
+        display: flex
+        flex-direction: column
+        h2 
+          padding-bottom: 5px
+          color: #1b0343
+          font-weight: 700
+          font-size: px(24)
+          line-height: px(28)
+          transition: .3s ease-in-out
+        p 
+          max-width: 230px
+          width: 100%
+          color: #1f1038
+          line-height: px(20)
+          font-size: px(14)
+          transition: .3s ease-in-out
+          +ellipsis($line: 4, $lh: 22px)
+        ul 
+          max-width: 230px
+          width: 100%
+          padding-top: 10px
+          margin-top: auto
+          display: flex
+          flex-wrap: wrap
+          li 
+            margin-right: 8px
+            margin-top: 8px
+            // margin-bottom: 8px
+            padding: 5px 10px
+            border-radius: 20px
+            border: solid 1px #e8e8e8
+            color: #2c2c2c
+            font-size: px(11)
+        +rwdmax(1500)
+          h2 
+            font-size: px(22)
+          p
+            max-width: 200px
+            font-size: px(14)
+            line-height: px(18)
+            +ellipsis($line: 3, $lh: 18px)
+          ul 
+            max-width: 200px
+            li 
+              margin-right: 5px
+              margin-top: 5px
+        +rwdmax(1200)
+          h2 
+            font-size: px(20)
+        +rwdmaxH(750)
+          h2 
+            font-size: px(22)
+          p 
+            max-width: 200px
+            +ellipsis($line: 3, $lh: 18px)
+        +rwdmaxH(600)
+          p 
+            max-width: 180px
+        +rwdmax(767)
+          h2 
+            max-width: 170px
+            padding-bottom: 3px
+            line-height: px(22)
+            font-size: px(18)
+          p 
+            max-width: 170px
+            font-size: px(12)
+            line-height: px(14)
+            +ellipsis($line: 2, $lh: 14px)
+          ul 
+            max-width: 170px
+        +rwdmax(360)
+          h2,
+          p 
+            max-width: 160px
+      .time
+        position: absolute
+        right: 20px
+        bottom: 20px
+        margin-left: 10px
+        width: 117px
+        height: 117px
+        flex-shrink: 0
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-self: flex-end
+        color: #fff
+        background-color: #e90483
+        div 
+          padding-bottom: 10px
+          span
+            &:first-child
+              font-weight: 700
+              font-size: px(36)
+            &:last-child
+              padding-left: 3px
+              font-size: px(24)
+        p 
+          font-weight: bold
+          font-size: px(14)
+        +rwdmax(1400)
+          width: 100px
+          height: 100px
+          div 
+            padding-bottom: 3px
+            span 
+              &:first-child
+                font-size: px(30)
+              &:last-child
+                font-size: px(16)
+          p 
+            font-size: px(14)
+        +rwdmax(1200)
+          width: 95px
+          height: 95px
+          div
+            span 
+              &:last-child
+                font-size: px(15)
+        +rwdmaxH(750)
+          width: 90px
+          height: 90px
+          right: 10px
+          bottom: 10px
+          div
+            span
+              &:first-child
+                font-size: px(28)
+              &:last-child
+                font-size: px(15)
+          p 
+            font-size: px(15)
+        +rwdmaxH(600)
+          width: 80px
+          height: 80px
+          div
+            span
+              &:first-child
+                font-size: px(24)
+          p 
+            font-size: px(12)
+        +rwdmax(767)
+          right: 0
+          width: 75px
+          height: 75px
+          div 
+            padding-bottom: 3px
+            span 
+              &:first-child
+                font-size: px(26)
+              &:last-child
+                font-size: px(16)
+          p 
+            font-size: px(10)
+    +rwdmax(1500)
+      max-width: 370px    
+    +rwdmax(1400)
+      max-width: 350px
+    +rwdmax(1200)
+      &:hover
+        transform: unset
+    // +rwdmaxH(800)
+    //   max-width: 390px
+    //   .photo
+    //     padding-bottom: 80%
+    +rwdmaxH(660)
+      max-width: 330px
+      .photo
+        padding-bottom: 70%
+    +rwdmaxH(600)
+      max-width: 310px
+      .photo
+        padding-bottom: 65%
+    +rwdmaxH(580)
+      .photo
+        padding-bottom: 55%
+    +rwdmax(767)
+      max-width: 300px
+    +rwdmax(380)
+      .photo
+        padding-bottom: 60%
+  .swiper-button-prev,
+  .swiper-button-next
+    width: 150px
+    height: 150px
+    border-radius: 50%
+    opacity: .3
+    background-color: $color-main
+    color: #fff
+    transition: .3s ease-in-out
+    &::after
+      opacity: 0
+      z-index: 1
+      transition: .3s ease-in-out
+    &:hover 
+      opacity: .8
+      &::after
+        opacity: 1
+    +rwdmax(767)
+      display: none
+  .swiper-button-prev
+    left: -100px
+    &::after
+      padding-left: 60px
+    &:hover 
+      left: -70px
+  .swiper-button-next
+    right: -100px
+    &::after
+      padding-right: 60px
+    &:hover 
+      right: -70px

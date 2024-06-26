@@ -1,0 +1,34 @@
+-
+  var footer = [
+    {
+      icon: 'icon-list',
+      text: 'List',
+      link: './list.html'},
+    {
+      icon: 'icon-map',
+      text: 'Map',
+      link: './map.html'},
+    {
+      icon: 'icon-person',
+      text: 'Nearby',
+      link: './nearby.html'},
+  ]
+
+footer.ft
+  .ft-wrap
+    ul
+      each val,index in footer
+        li(class= (index === 0 ? 'active' : ''))
+          a(href= val.link)
+            i(class= val.icon)
+            span= val.text
+    // 5/21 修改 增加簡中
+    .btn-lang
+      .text-lang.lang-roll(data-lang="en") EN
+      ul 
+        li(list-lang="en")
+          span.lang-roll EN
+        li(list-lang="zh_TW") 
+          span.lang-roll 繁
+        li(list-lang="zh_CN") 
+          span.lang-roll 简

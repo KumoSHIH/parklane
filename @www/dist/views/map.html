@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+  <!-- head標籤 & 網站設定-->
+  <head itemscope="itemscope" itemtype="http://schema.org/WebSite">
+    <!--共用設定-->
+    <!-- 網站語系及語言宣告-->
+    <meta http-equiv="content-language" content="zh-Hant-HK">
+    <meta charset="UTF-8">
+    <!-- RWD設定-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- 瀏覽器設定-->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 網站關鍵字-->
+    <meta name="keywords" content="網站關鍵字">
+    <!-- 網頁內容描述-->
+    <meta name="description" content="網頁內容描述，中文 80 個字元、英文 160 個字元">
+    <title>Parklane</title>
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!--獨立CSS-->
+    <link rel="stylesheet" href="../assets/css/map.css">
+  </head>
+  <body class="map" data-page="map">
+    <div class="main-wrapper">
+      <!-- 導覽列-->
+      <header class="hd">
+        <div class="hd-container"> <a class="logo" href="./index.html"><img src="../assets/img/logo-color.png" alt=""></a><a class="logo2" href="./index.html"><img src="../assets/img/logo02.png" alt=""></a>
+          <!-- 5/8 修改 改圖片--><a class="logo2-mobile" href="./index.html"><img src="../assets/img/logo-white.png" alt=""></a>
+        </div>
+      </header>
+      <!-- 主要內容-->
+      <main>
+        <div class="common-content">
+          <div class="content-wrap">
+            <div class="content-map">
+              <!-- 初始定位 data-lat / data-lng-->
+              <!-- 4/26 修改 data-photo 暫時放圖片的地方-->
+              <!-- 5/13 修改 新增 data-dot-->
+              <!-- 5/17 修改 新增 data-icon3-mobile-->
+              <!-- 5/17 修改 新增 data-dot-mobile-->
+              <!-- 5/22 修改 data-icon2 圓形大圖 128X128-->
+              <!-- 5/22 修改 data-icon2-mobile 圓形小圖 67X67-->
+              <!-- data-lat="24.133895442125247" data-lng="120.71907471802467"-->
+              <!-- data-lat="24.158114465997297" data-lng="120.66584587013656"-->
+              <!-- data-lat="24.19061536647487" data-lng="120.59400849765035"-->
+              <div id="map" data-lat="22.2811814" data-lng="114.1857825" data-icon="../assets/img/location2.png" data-photo="../assets/img/map.jpg" data-icon2="../assets/img/roll-photo.png" data-icon3="../assets/img/location3.png" data-dot="../assets/img/dot.png" data-icon2-mobile="../assets/img/roll-photo-mobile.png" data-dot-mobile="../assets/img/dot-mobile.png" data-icon3-mobile="../assets/img/location3-mobile.png"></div>
+            </div>
+            <div class="content-list">
+              <!-- 5/8 修改 整塊-->
+              <div class="photo">
+                <div class="photo-wrap"><img src="../assets/img/img02-410X425.jpg" alt=""></div>
+              </div>
+              <div class="bottom-block"> 
+                <div class="time"> 
+                  <div> 
+                    <!-- 5/20 修改 刪除2個span-->
+                  </div>
+                  <!-- 6/7 修改-->
+                  <p>WALK</p>
+                </div>
+                <div class="text"> 
+                  <h2>Leighton Hill</h2>
+                  <p>2B Broadwood Road, Happy Valley</p>
+                </div><a class="btn-more" href="./detail.html"><span>more </span>
+                  <div class="icon"><img src="../assets/img/arrow.png" alt=""></div></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- footer-->
+      <footer class="ft">
+        <div class="ft-wrap">
+          <ul>
+            <li class="active"><a href="./list.html"><i class="icon-list"></i><span>List</span></a></li>
+            <li><a href="./map.html"><i class="icon-map"></i><span>Map</span></a></li>
+            <li><a href="./nearby.html"><i class="icon-person"></i><span>Nearby</span></a></li>
+          </ul>
+          <!-- 5/21 修改 增加簡中-->
+          <div class="btn-lang">
+            <div class="text-lang lang-roll" data-lang="en">EN</div>
+            <ul> 
+              <li list-lang="en"><span class="lang-roll">EN</span></li>
+              <li list-lang="zh_TW"> <span class="lang-roll">繁</span></li>
+              <li list-lang="zh_CN"> <span class="lang-roll">简</span></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+  <!--引入的script-->
+  <script src="../assets/js/plugins-dist.js"></script>
+  <script src="../assets/js/methods-dist.js"></script>
+  <script src="../assets/js/main-dist.js"></script>
+  <!-- google map-->
+<script>
+  (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+    key: 'AIzaSyAlncrqCI0M-z2rdzNZCfg_4B0BIaGesJ4',
+    v: "weekly",
+  });
+</script>
+<script>
+  let map;
+  let originMarker;
+  let originImgMarker;
+  let originalWidth = $('.content-map').outerWidth();
+  let originalHeight = $('.content-map').outerHeight();
+  let imgMarker;
+  let imgMarkerBg;
+  let markersDot = [];
+  let markersImg = [];
+  let locationDot;
+  let data2;
+
+  if($(window).width() <= 1200) {
+    locationDot = $('#map').attr('data-dot-mobile');
+  }
+  else{
+    locationDot = $('#map').attr('data-dot');
+  }
+  
+  // 初始座標
+  const initLat = Number(22.2815);
+  const initLng = Number(114.186);
+  const initPos = { lat: initLat, lng: initLng };
+  
+  const apiUrl = "https://wondertrails.parklane.com.hk/api/spotinfo";
+  // 右側的資訊欄
+  const photo = $('.photo .photo-wrap img');
+  const time = $('.bottom-block .time div span:first-child');
+  const title = $('.bottom-block .text h2');
+  const desc = $('.bottom-block .text p');
+  const detailBtn = $('.bottom-block a');
+  // 初始資訊
+  const originPhoto = photo.attr('src');
+  const originTitle = title.text();
+  const originDesc = desc.text();
+  const originDetailBtn = detailBtn.attr('href');
+  let originTime = 0;
+  // 使用者位置
+  let userPos = { lat: 0, lng: 0 };
+  // let userPos = { lat: 22.2811814, lng: 114.1887825 };
+
+  let originlocationImg = $('#map').attr('data-icon');
+  let locationImg = $('#map').attr('data-icon3');
+  let locationImgMobile = $('#map').attr('data-icon3-mobile');
+  let originImg = $('#map').attr('data-icon2');
+  let originImgMobile = $('#map').attr('data-icon2-mobile');
+  let flag = "";
+
+  async function initMap() {
+    const { Map } = await google.maps.importLibrary("maps");
+    let deskbounds = {
+      north: 22.290490,
+      south: 22.270790,
+      east: 114.200200,
+      west: 114.169380
+    }
+    let mobilebounds = {
+      north: 22.288923,
+      south: 22.274790,
+      east: 114.200200,
+      west: 114.169380
+    }
+    let bounds = $(window).width() <= 767 ? mobilebounds : deskbounds;
+
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: initPos,
+      zoom: 16,
+      minZoom: 16,
+      maxZoom: 18,
+      mapTypeControl: false,
+      streetViewControl: false,
+      rotateControl: false,
+      fullscreenControl: false,
+      restriction: {
+        latLngBounds: bounds,
+        strictBounds: false
+      }
+    });
+    
+    const imageBounds = {
+        // north: 22.288933,
+        north: 22.290933,
+        south: 22.274660,
+        east: 114.200200,
+        west: 114.169380
+    };
+    historicalOverlay = new google.maps.GroundOverlay(
+        $('#map').attr('data-photo'),
+        imageBounds,
+    );
+    historicalOverlay.setMap(map);
+
+
+    // 初始位置與使用者的距離計算
+    let directionsService = new google.maps.DirectionsService();
+    let directionsRenderer = new google.maps.DirectionsRenderer();
+    directionsRenderer.setMap(map);
+    const request = {
+      origin: userPos,
+      destination: initPos,
+      travelMode: 'WALKING',
+    }
+    directionsService.route(request, function(response, status) {
+      if (status == 'OK') {
+        let route = response.routes[0];
+        let distance = route.legs[0].duration.text;
+        let newText = distance.replace("小時","").replace("hours","").replace("hour","").replace("分鐘","").replace("mins","").replace("min","").replace("分","");
+        // console.log(distance);
+        // console.log(newText);
+        let arr = newText.split(' ');
+        let hour;
+        let min;
+        let element = '';
+        if(arr.length === 4) {
+          hour = arr[0];
+          min = arr[2];
+          let totalMin = hour * 60 + Number(min);
+          let arrMin = totalMin.toString().split('');
+
+          if(arrMin.length > 2) {
+            element = `<span>${totalMin}</span><br><span>mins</span>`;
+          }
+          else {
+            element = `<span>${totalMin}</span><span>mins</span>`;
+          }
+        }
+        else{
+          min = arr[0];
+          let spanMin = Number(min) > 1 ? 'mins' : 'min';
+          element = `<span>${min}</span><span>${spanMin}</span>`;
+        }
+        $('.time div').html(element);
+        // time.text(newText);
+        // originTime = newText
+      } 
+      else {
+        console.error(status);
+        // 5/21
+        element = `<span>--</span><span></span>`;
+        $('.time div').html(element);
+      }
+    });
+    
+    map.addListener('click', function(event) {
+      console.log(event);
+    });
+    // 6/20 修改
+    // map.addListener('drag', function() {
+    //   data2.forEach(function(ele,idx){
+    //     if(ele.visible === true) {
+    //       ele.visible = false
+    //       markersImg[idx].setVisible(false);
+    //       markersDot[idx].setZIndex(0);
+    //       markersDot[idx].setIcon(locationDot);
+    //     }
+    //   })
+    // });
+    
+  }
+
+  async function getData(apiUrl) {
+    try {
+      let res = await fetch(apiUrl);
+      let data = await res.json();
+
+      if(res.status === 200) {
+        // console.log(data);
+        // console.log(res);
+        initData(data);
+        data2 = data
+      }else{
+        console.log(data);
+      }
+    }
+    catch(error) {
+      console.log(error);
+    }
+  }
+
+  // 標記所有地點
+  let initData = (data) => {
+    // console.log(data);
+    data.forEach(function(item,index){
+      let pos = { lat: item.latitude, lng: item.longitude };
+      let imgMarker;
+      let dot;
+
+      // 6/20 修改
+      item.visible = false;
+      item.index = index;
+
+      function setMarker() {
+        let imgPos = {};
+        let img;
+        let icon;
+        
+        // 圖片的
+        if($(window).width() <= 1200) {
+          img = item.img_circle_mobile;
+          icon = `https://wondertrails.parklane.com.hk/storage/${img}`;
+          imgPos = { lat: pos.lat + 0.00081, lng: pos.lng };
+        }
+        else{
+          img = item.img_circle;
+          icon = `https://wondertrails.parklane.com.hk/storage/${img}`;
+          imgPos = { lat: pos.lat + 0.00155, lng: pos.lng };
+        }
+
+        imgMarker = new google.maps.Marker({
+          position: imgPos,
+          map: map,
+          icon: icon,
+          zIndex: 2,
+        });
+        imgMarker.setVisible(false);
+
+        // 底圖
+        dot = new google.maps.Marker({
+          position: pos,
+          map: map,
+          icon: locationDot,
+          // label: {
+          //   text: (index + 1).toString(),
+          //   color: 'white',
+          //   fontSize: '12px',
+          //   fontWeight: 'bold'
+          // }
+        });
+
+        if(item.id == 47) {
+          originDot = dot;
+        }
+        
+        // 點擊出現圖片 & 切換右側的資訊欄
+        dot.addListener('click',function(e){
+
+          // 6/20 修改
+          if(item.visible === false) {
+            item.visible = true
+            // console.log(item.visible);
+            data.forEach(function(ele,idx){
+              if(item.index !== idx) {
+                ele.visible = false;
+              }
+            })
+            
+            // 修改其他的圖片標記的層級
+            markersImg.forEach(function(item,index){
+              markersImg[index].setVisible(false);
+            });
+            markersDot.forEach(function(item,index){
+              // originMarker.setZIndex(0);
+              markersDot[index].setZIndex(0);
+              markersDot[index].setIcon(locationDot);
+            });
+            
+            // 點擊的這個顯示在最上層
+            imgMarker.setVisible(true);
+
+            if(flag == pos)
+            {
+              dot.setIcon(locationDot);    
+              markersImg[index].setVisible(false);        
+              
+              return false;
+            }
+            else
+            {
+              if($(window).width() <= 1200) {
+                dot.setIcon(locationImgMobile);
+              }
+              else {
+                dot.setIcon(locationImg);
+              }     
+            }
+
+            flag = pos;
+
+            dot.setPosition(pos);
+            dot.setZIndex(1);
+          }
+          // 重複點擊關閉
+          else{
+            item.visible = false
+            markersImg[item.index].setVisible(true);
+            if($(window).width() <= 1200) {
+              dot.setIcon(locationImgMobile);
+            }
+            else {
+              dot.setIcon(locationImg);
+            } 
+            dot.setZIndex(1);
+          }
+
+          // 計算兩點的距離
+          let directionsService = new google.maps.DirectionsService();
+          let directionsRenderer = new google.maps.DirectionsRenderer();
+          directionsRenderer.setMap(map);
+          const request = {
+            origin: userPos,
+            destination: pos,
+            travelMode: 'WALKING',
+          }
+          directionsService.route(request, function(response, status) {
+            if (status == 'OK') {
+              let route = response.routes[0];
+              let distance = route.legs[0].duration.text;
+              let newText = distance.replace("小時","").replace("hours","").replace("hour","").replace("分鐘","").replace("mins","").replace("min","").replace("分","");
+              let arr = newText.split(' ');
+              let hour;
+              let min;
+              let element = '';
+              if(arr.length === 4) {
+                hour = arr[0];
+                min = arr[2];
+                let totalMin = hour * 60 + Number(min);
+                let arrMin = totalMin.toString().split('');
+
+                if(arrMin.length > 2) {
+                  element = `<span>${totalMin}</span><br><span>mins</span>`;
+                }
+                else {
+                  element = `<span>${totalMin}</span><span>mins</span>`;
+                }
+              }
+              else{
+                min = arr[0];
+                let spanMin = Number(min) > 1 ? 'mins' : 'min';
+                element = `<span class="num">${min}</span><span>${spanMin}</span>`;
+              }
+              $('.bottom-block .time div').html(element);
+              
+            } else {
+              console.error(status);
+              element = `<span>--</span><span></span>`;
+              $('.time div').html(element);
+            }
+          });
+
+          // 切換右側的資訊欄
+          // 出場動畫
+          $('.bottom-block').addClass('out');
+          
+          setTimeout(() => {
+            $('.bottom-block').addClass('in');
+
+            photo.attr('src', `https://wondertrails.parklane.com.hk/storage/${item.img}`);
+            title.text(item.name);
+            desc.text(item.address);
+            detailBtn.attr('href', `https://wondertrails.parklane.com.hk/detail/${item.id}`);
+
+            setTimeout(() => {
+              $('.bottom-block').removeClass('out');
+            },200)
+            setTimeout(() => {
+              $('.bottom-block').removeClass('in');
+            },300);
+          },600);
+        });
+
+        markersDot.push(dot);
+        markersImg.push(imgMarker);
+      }
+      function checkGoogleMapsLoaded() {
+        if (typeof google !== 'undefined' && typeof google.maps !== 'undefined' && typeof google.maps.event !== 'undefined') {
+          // 縮放重新定位 imgMarker
+          google.maps.event.addListener(map, 'zoom_changed', function() {
+            let zoomLevel = map.getZoom();
+            let lv16;
+            let lv17;
+            let lv18;
+            let olv16;
+            let olv17;
+            let olv18;
+
+            if($(window).width() <= 1200) {
+              lv16 = { lat: pos.lat + 0.00081, lng: pos.lng };
+              lv17 = { lat: pos.lat + 0.000413, lng: pos.lng };
+              lv18 = { lat: pos.lat + 0.0002068, lng: pos.lng };
+              olv16 = { lat: initPos.lat + 0.00081, lng: initPos.lng };
+              olv17 = { lat: initPos.lat + 0.000413, lng: initPos.lng };
+              olv18 = { lat: initPos.lat + 0.0002068, lng: initPos.lng };
+            }
+            else {
+              lv16 = { lat: pos.lat + 0.00155, lng: pos.lng };
+              lv17 = { lat: pos.lat + 0.00078, lng: pos.lng };
+              lv18 = { lat: pos.lat + 0.000382, lng: pos.lng };
+              olv16 = { lat: initPos.lat + 0.00155, lng: initPos.lng };
+              olv17 = { lat: initPos.lat + 0.00078, lng: initPos.lng };
+              olv18 = { lat: initPos.lat + 0.000382, lng: initPos.lng };
+            }
+
+            // 圖片
+            if(imgMarker) {
+              if(zoomLevel === 16) {
+                imgMarker.setPosition(lv16);
+              }
+              else if(zoomLevel === 17) {
+                imgMarker.setPosition(lv17);
+              }
+              else if(zoomLevel === 18) {
+                imgMarker.setPosition(lv18);
+              }
+            }
+          });
+          setMarker();
+        } else {
+          // Google Maps API 尚未載入，稍後再檢查
+          setTimeout(checkGoogleMapsLoaded, 100);
+        }
+      }
+      
+      checkGoogleMapsLoaded();
+    })
+
+  }
+
+  // 取得使用者位置
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+      alert("瀏覽器不支援地理定位。");
+    }
+  }
+  function showPosition(position) {
+    userPos.lat = position.coords.latitude;
+    userPos.lng = position.coords.longitude;
+    // console.log(userPos);
+    setTimeout(() => {            
+      google.maps.event.trigger(originDot, 'click');
+        setTimeout(() => {
+          $('.content-list').css("visibility", "visible");
+        }, 400);            
+    }, 1000); 
+  }
+  function showError(error) {
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        alert("使用者拒絕提供位置資訊。");
+        break;
+      case error.POSITION_UNAVAILABLE:
+        alert("無法取得位置資訊。");
+        break;
+      case error.TIMEOUT:
+        alert("請求位置資訊超時。");
+        break;
+      case error.UNKNOWN_ERROR:
+        alert("發生未知錯誤。");
+        break;
+    }
+    userPos.lat = 22.2815;
+    userPos.lng = 114.186;
+    setTimeout(() => {            
+    google.maps.event.trigger(originDot, 'click');
+    setTimeout(() => {
+        $('.content-list').css("visibility", "visible");
+      }, 400);            
+    }, 1000); 
+  }
+
+  function closeMaker() {
+    console.log('bbb');
+    map.addListener('click', function(event) {
+      console.log('aaa');
+    });
+  }
+
+  $('.content-list').show();
+  
+  getLocation();
+  
+  getData(apiUrl);
+
+  initMap();
+
+  // closeMaker();
+</script>
+
+</html>

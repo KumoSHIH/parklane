@@ -1,0 +1,73 @@
+-
+  var swiper = [
+    {
+      photo: '../assets/img/img01-410X425.jpg',
+      title: 'Mt. Yotei',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      tag: ['Art','Photospot','Landmark'],
+      time: '8'},
+    {
+      photo: '../assets/img/img02-410X425.jpg',
+      title: 'Leighton Hill',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultricies integer …',
+      tag: ['Art','Photospot','Landmark','Landmark'],
+      time: '12'},
+    {
+      photo: '../assets/img/img03-410X425.jpg',
+      title: 'Space Invader IN CAUSEWAY BAY',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultricies integer …',
+      tag: ['Art','Photospot'],
+      time: '7'},
+    {
+      photo: '../assets/img/img05.jpg',
+      title: 'Space Invader',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultricies integer …',
+      tag: ['Art','Photospot'],
+      time: '3'},
+  ]
+
+doctype html
+html(lang="zh-Hant-HK")
+  // head標籤 & 網站設定
+  head(itemscope='itemscope', itemtype='http://schema.org/WebSite')
+    //共用設定
+    include ../layouts/_head.pug
+    //獨立CSS
+    link(rel="stylesheet", href="../assets/css/nearby.css")
+
+  body.nearby(data-page="nearby")
+    .main-wrapper
+      // 導覽列
+      include ../layouts/_navbar.pug
+      // 主要內容
+      main
+        .swiper.common-content 
+          .swiper-container 
+            .swiper-wrapper
+              each val in swiper
+                .swiper-slide
+                  a.slide-wrap(href="./detail.html")
+                    .photo 
+                      .photo-wrap
+                        img(src= val.photo, alt="")
+                    .bottom
+                      .text
+                        h2= val.title
+                        p= val.text
+                        ul
+                          each tag in val.tag
+                            li= tag
+                      .time
+                        div
+                          // 5/14 修改 刪除 span 後面的空格
+                          span= val.time
+                          span min
+                        // 6/7 修改
+                        p WALK
+          .swiper-button-prev
+          .swiper-button-next
+      // footer
+      include ../layouts/_footer.pug
+
+  //引入的script
+  include ../layouts/_script.pug

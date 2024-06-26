@@ -1,0 +1,184 @@
+footer.ft 
+  position: fixed
+  left: 0
+  bottom: 0
+  height: 100px
+  width: 100%
+  z-index: 10
+  box-shadow: 0 -8px 12px 0 rgba(0, 0, 0, 0.2)
+  // background-image: linear-gradient(to bottom, #1b1484 96%, #1b1484 80%, #270067 22%)
+  background-image: linear-gradient(to bottom, #1b1484 100%, #1b1484 82%, #270067 16%)
+  +flexCenter
+  +rwdmaxH(800)
+    height: 75px
+  +rwdmax(767)
+    height: 75px
+.ft-wrap
+  width: 100%
+  +flexCenter
+  +rwdmax(1200)
+    display: flex
+    justify-content: center
+    align-items: center
+  +rwdmax(767)
+    width: auto
+  >ul 
+    max-width: 540px
+    width: 100%
+    margin: 0 auto
+    display: flex
+    justify-content: space-between
+    align-items: center
+    +rwdmax(1400)
+      max-width: 400px
+    +rwdmax(1200)
+      max-width: 300px
+      margin-right: 0
+      margin-left: 0
+    +rwdmax(767)
+      max-width: none
+      justify-content: space-around
+
+    li 
+      color: #c6c1de
+      font-size: px(18)
+      transition: .3s ease-in-out
+      &.active
+        color: $color-main
+        a 
+          span 
+            font-weight: 600
+        i 
+          font-weight: bold
+      a
+        display: flex
+        align-items: center
+        span 
+          font-weight: 400
+          text-transform: uppercase
+      i 
+        padding-right: 20px
+        font-size: px(28)
+      +rwdmax(1200)
+        a 
+          flex-direction: column
+        i 
+          padding-bottom: 8px
+          padding-right: 0
+      +rwdmax(767)
+        margin-right: 40px
+        font-size: px(15)
+        &:nth-child(2)
+          margin-left: 8px
+        &:last-child
+          margin-right: 0
+        i 
+          font-size: px(20)
+
+  .btn-lang
+    position: absolute
+    right: pxTovw(400)
+    top: 27px
+    +rwdmaxH(800)
+      top: 17px
+    +rwdmax(1200)
+      width: 98px
+      position: static
+      // margin-left: 60px
+    +rwdmax(767)
+      width: 78px
+      // margin-left: 40px
+    .text-lang
+      z-index: 1
+      &.active
+        // border-color: #fff
+        color: #fff
+        &::after
+          border-color: #fff
+          width: 43px
+          height: 43px
+      &.active + ul
+        opacity: 1
+        
+        li 
+          opacity: 1
+          transform: translateY(0px)
+          pointer-events: auto
+      &.active + ul .lang-roll
+        
+      +rwdmax(1200)
+        margin-left: auto
+    ul
+      // display: none
+      position: absolute
+      // top: -55px
+      left: 0
+      top: -110px
+      opacity: 0
+      transition: .3s ease-in-out
+      li
+        // position: absolute
+        // left: 0
+        // top: 0
+        margin-bottom: 10px
+        pointer-events: none
+        opacity: 0
+        transform: translateY(15px)
+        transition: .3s ease-in-out
+        .lang-roll
+          color: #1B1484
+          background-color: #fff
+          border-color: #fff
+          box-shadow: 0 0 10px rgba(0,0,0,0.2)
+          &::after
+            display: none
+        &:last-child
+          top: -53px
+        &[list-lang="zh_TW"],
+        &[list-lang="zh_CN"]
+          font-size: 20px
+          font-weight: bold
+        &[list-lang="en"]
+          font-size: 14px
+      +rwdmax(1200)
+        top: -90px
+      +rwdmax(900)
+        top: -80px
+      +rwdmax(767)
+        top: -90px
+    li
+      cursor: pointer
+      .lang-roll
+        width: 43px
+        height: 43px
+    .lang-roll
+      width: 43px
+      height: 43px
+      border-radius: 50%
+      color: #C6C1DE
+      cursor: pointer
+      +flexCenter
+      transition: .3s ease-in-out
+      position: relative
+      &::after
+        content: ''
+        width: 38px
+        height: 38px
+        border-radius: 50%
+        border: solid 2px #C6C1DE
+        transition: .3s ease-in-out
+        +posCenter
+      +rwdmax(767)
+        // width: 36px
+        // height: 36px
+    [list-lang="en"]
+      span
+        font-weight: bold
+        font-family: $openSans
+    [data-lang="en"]
+      font-weight: bold
+      font-family: $openSans
+    [data-lang="zh_TW"],
+    [data-lang="zh_CN"]
+      font-size: 20px
+      font-weight: bold

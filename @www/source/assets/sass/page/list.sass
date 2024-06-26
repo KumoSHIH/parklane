@@ -1,0 +1,21 @@
+@import ../common/base/_variable
+@import ../common/base/_mixin
+@import ../common/layouts/_list
+
+.list
+  .hd
+    top: 0
+    opacity: 1
+  
+  .common-content
+    +rwdmaxH(800)
+      margin-top: 80px
+      .select-list
+        padding: 30px 0
+    +rwdmax(1200)
+      margin-top: 67px
+    +rwdmax(767)
+      .select-list
+        padding-top: 20px
+        padding-bottom: 0px
+    

@@ -1,0 +1,52 @@
+<!-- google map-->
+<script>
+  (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+    key: "AIzaSyBwzNjlNFjW8iBVvC9oEfcIBcywHEKNGxI",
+    v: "weekly",
+  });
+</script>
+<script>
+  let map;
+  // initMap is now async
+  async function initMap() {
+    const { Map } = await google.maps.importLibrary("maps");
+    const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+    const position = { 
+      lat: Number($('#map').attr('data-lat')), 
+      lng: Number($('#map').attr('data-lng')) 
+    };
+
+    let map = new Map(document.getElementById("map"), {
+        center: position,
+        zoom: 18,
+        mapTypeControl: false,
+        scaleControl: false,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: false,
+    });
+
+    setMarkers(map);
+
+    // 客製座標
+    function setMarkers(map) {
+      let locationImg = $('#map').attr('data-icon');
+      marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        icon: locationImg,
+      });
+    }
+
+    function setMarkers2(map) {
+        let locationBg = $('#map').attr('data-bg');
+        marker = new google.maps.Marker({
+          position: position,
+          map: map,
+          icon: locationImg,
+        });
+      }
+  }
+
+  initMap();
+</script>

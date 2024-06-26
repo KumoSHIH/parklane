@@ -1,0 +1,138 @@
+<script>
+  (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+    key: "AIzaSyAlncrqCI0M-z2rdzNZCfg_4B0BIaGesJ4",
+    v: "weekly",
+  });
+</script>
+<script>
+  let map;
+  // 使用者位置
+  // let userPos = { lat: 0, lng: 0 };
+  let userPos = { lat: 22.2806, lng: 114.183304638 };
+  // initMap is now async
+  async function initMap() {
+    const { Map } = await google.maps.importLibrary("maps");
+    const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+    const position = { 
+      lat: Number($('#map').attr('data-lat')), 
+      lng: Number($('#map').attr('data-lng')) 
+    };
+
+    map = new Map(document.getElementById("map"), {
+        center: position,
+        zoom: 18,
+        mapTypeControl: false,
+        scaleControl: false,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: false,
+    });
+
+    setMarkers(map);
+
+    // 客製座標
+    function setMarkers(map) {
+      let desktopIcon = 'https://wondertrails.parklane.com.hk/assets/img/pin.png';
+      let mobileIcon = 'https://wondertrails.parklane.com.hk/assets/img/pin-mobile.png';
+      let locationImg = $(window).width() <= 767 ? mobileIcon : desktopIcon;
+
+      marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        icon: locationImg,
+      });
+    }
+    
+    // 點擊顯示目前位置
+    $('ul.link .btn-origin').on('click',function(){
+      let locationImg = 'https://wondertrails.parklane.com.hk/assets/img/location2.png';
+      map.panTo(userPos);
+      UserMarker = new google.maps.Marker({
+        position: userPos,
+        map: map,
+        icon: locationImg,
+      });
+    })
+
+    // 初始位置與使用者的距離計算
+    let directionsService = new google.maps.DirectionsService();
+    let directionsRenderer = new google.maps.DirectionsRenderer();
+    directionsRenderer.setMap(map);
+    const request = {
+      origin: userPos,
+      destination: position,
+      travelMode: 'WALKING',
+    }
+    directionsService.route(request, function(response, status) {
+      if (status == 'OK') {
+        let route = response.routes[0];
+        let distance = route.legs[0].duration.text;
+        let newText = distance.replace("小時","").replace("hours","").replace("hour","").replace("分鐘","").replace("mins","").replace("min","").replace("分","");
+        let arr = newText.split(' ');
+        let hour;
+        let min;
+        let element = '';
+        // console.log(distance);
+        if(arr.length === 4) {
+          hour = arr[0];
+          min = arr[2];
+          let totalMin = hour * 60 + Number(min);
+          let arrMin = totalMin.toString().split('');
+
+          if(arrMin.length > 2) {
+            element = `<span>${totalMin}</span><br><span>mins</span>`;
+          }
+          else {
+            element = `<span>${totalMin}</span><span>mins</span>`;
+          }
+        }
+        else{
+          min = arr[0];
+          let spanMin = Number(min) > 1 ? 'mins' : 'min';
+          element = `<span>${min}</span><span>${spanMin}</span>`;
+        }
+        $('.time div').html(element);
+        
+      } else {
+        console.error(status);
+        // 5/21
+        element = `<span>--</span><span></span>`;
+        $('.time div').html(element);
+      }
+    });
+  }
+
+  // 取得使用者位置
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+      alert("瀏覽器不支援地理定位。");
+    }
+  }
+  function showPosition(position) {
+    userPos.lat = position.coords.latitude;
+    userPos.lng = position.coords.longitude;
+    // console.log(userPos);
+  }
+  function showError(error) {
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        alert("使用者拒絕提供位置資訊。");
+        break;
+      case error.POSITION_UNAVAILABLE:
+        alert("無法取得位置資訊。");
+        break;
+      case error.TIMEOUT:
+        alert("請求位置資訊超時。");
+        break;
+      case error.UNKNOWN_ERROR:
+        alert("發生未知錯誤。");
+        break;
+    }
+  }
+
+  // getLocation();
+
+  initMap();
+</script>

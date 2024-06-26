@@ -1,0 +1,140 @@
+.common-list
+  .select-list
+    // margin-top: 100px
+    padding: 50px 0
+    // background-color: #f6f6f6
+    +rwdmax(1200)
+      padding: 35px 0 10px
+      width: 90%
+      margin: 0 auto 30px
+      overflow-x: scroll
+    +rwdmax(767)
+      padding-top: 20px
+      margin-bottom: 20px
+    ul 
+      display: flex
+      justify-content: center
+      +commonW(1420)
+      +rwdmax(1200)
+        justify-content: flex-start
+    li
+      margin: 0 10px
+      padding: 14px 35px
+      color: $color-dark
+      border-radius: 40px
+      // transition: .3s ease-in-out
+      cursor: pointer
+      &.active
+        color: #fff
+        background-image: linear-gradient(to right, #d51f49, #d51f49 17%, #ec008c)
+      +rwdmax(1320)
+        padding: 14px 20px
+      +rwdmax(1200)
+        flex-shrink: 0
+        margin-right: 10px
+        padding: 14px 20px
+      +rwdmax(767)
+        padding: 10px 20px
+        font-size: 14px
+      +rwdmax(380)
+        font-size: 12px
+  .content-wrap
+    height: calc(100vh - 350px) 
+    height: calc((var(--vh, 1vh) * 100) - 350px) 
+    +commonW(1420)
+    +rwdmaxH(800)
+      height: calc(100vh - 258px) 
+      height: calc((var(--vh, 1vh) * 100) - 258px) 
+    +rwdmax(1200)
+      width: 90%
+      height: calc(100vh - 308px) 
+      height: calc((var(--vh, 1vh) * 100) - 308px) 
+      // 5/29
+      height: 100%
+    +rwdmax(767)
+      width: 100%
+      // 5/29
+      // height: calc(100vh - 292px) 
+      // height: calc((var(--vh, 1vh) * 100) - 292px) 
+    .scrollbar-inner
+      scrollbar-width: none
+      max-height: calc(100vh - 350px) !important
+      .scroll-element
+        &.scroll-y
+          width: 6px
+        .scroll-bar
+          background-color: #b3b3b3
+          opacity: 1
+      &::-webkit-scrollbar
+        display: none
+      -ms-overflow-style: none
+      +rwdmaxH(800)
+        max-height: calc(100vh - 258px) !important
+        // max-height: calc(100vh - 332px) !important
+      +rwdmax(1200)
+        // 5/29
+        max-height: unset
+        // max-height: calc(100vh - 308px) !important
+        // max-height: max-content !important
+    ul
+      display: flex
+      flex-wrap: wrap
+      +rwdmax(1400)
+        margin-left: pxTovw(130)
+      +rwdmax(1300)
+        margin-left: 70px
+      +rwdmax(1200)
+        margin-left: 40px
+      +rwdmax(810)
+        margin-left: 20px
+        // padding-bottom: 40px
+      +rwdmax(767)
+        // 5/29
+        padding-bottom: 80px
+      +rwdmax(375)
+        // padding-bottom: 40px
+      li
+        margin-left: 25px
+        margin-right: 25px
+        margin-bottom: 30px
+        max-width: 230px
+        width: 100%
+        transition: .3s ease-in-out
+        .photo
+          position: relative
+          padding-bottom: 100%
+          overflow: hidden
+          transition: box-shadow .3s ease-in-out
+          &-wrap
+            width: 100%
+            height: 100%
+            +posCenter
+        .text
+          padding-top: 13px
+          h2
+            padding-bottom: 10px
+            line-height: 1.2
+            font-size: px(20)
+            font-weight: 700
+            color: $color-main
+          p
+            color: $color-dark
+            +ellipsis($line: 2, $lh: 20px)
+
+        &:hover 
+          transform: scale(1.1,1.1)
+          .photo 
+            box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.27)
+        +rwdmax(1200)
+          width: 33%
+          margin-left: 0
+        +rwdmax(810)
+          width: 45%
+          margin-right: 15px
+        +rwdmax(767)
+          .text
+            h2 
+              font-size: px(16)
+            p 
+              font-size: px(14)
+              +ellipsis($line: 2, $lh: 16px)

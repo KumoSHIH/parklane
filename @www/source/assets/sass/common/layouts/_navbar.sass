@@ -1,0 +1,58 @@
+.hd
+  position: fixed
+  left: 0
+  top: -100px
+  width: 100%
+  opacity: 0
+  background-image: url(../../assets/img/desktop-header.png)
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  transition: .3s ease-in-out
+  z-index: 3
+  +rwdmax(1200)
+    background-image: url(../../assets/img/mobile-header.png)
+  &.show
+    top: 0
+    opacity: 1
+    z-index: 100
+  &-container
+    width: 90%
+    height: 100px
+    margin: 0 auto
+    display: flex
+    align-items: center
+    justify-content: center
+    .logo
+      max-width: 90px
+      width: 100%
+      margin-right: 16px
+    .logo2
+      max-width: 225px
+      width: 100%
+    .logo2-mobile
+      display: none
+    +rwdmaxH(800)
+      height: 80px
+    +rwdmax(1200)
+      padding-top: 10px
+      padding-bottom: 5px
+      max-width: 400px
+      justify-content: space-between
+      height: auto
+      .logo
+        max-width: 110px
+        margin-right: 0
+        display: none
+      .logo2
+        max-width: 200px
+      .logo2-mobile
+        display: block
+        max-width: 60px
+    +rwdmax(767)
+      // padding-top: 10px
+    
+    
+
+
+

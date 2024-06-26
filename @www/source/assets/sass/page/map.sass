@@ -1,0 +1,219 @@
+@import ../common/base/_variable
+@import ../common/base/_mixin
+
+.map
+  .hd 
+    top: 0
+    opacity: 1
+  // .hd,
+  // footer
+  //   display: none
+  .common-content
+    // margin-top: 0
+    // height: 100vh
+    overflow: hidden
+    height: calc(100vh - 200px)
+    height: calc((var(--vh, 1vh) * 100) - 200px) 
+    +rwdmaxH(800)
+      margin-top: 80px
+      height: calc(100vh - 155px)
+      height: calc((var(--vh, 1vh) * 100) - 155px)
+    +rwdmax(1200)
+      margin-top: 66px
+      height: calc(100vh - 141px)
+      height: calc((var(--vh, 1vh) * 100) - 141px)
+  .content-wrap
+    display: flex
+    +rwdmax(1200)
+      flex-direction: column
+      position: relative
+  .content-map
+    width: 100%
+    #map 
+      // height: calc(100vh - 200px)
+      // height: calc((var(--vh, 1vh) * 100) - 200px) 
+      height: 100vh
+      +rwdmaxH(800)
+        height: calc(100vh - 155px)
+        height: calc((var(--vh, 1vh) * 100) - 155px)
+      +rwdmax(1200)
+        height: calc(100vh - 325px)
+        height: calc((var(--vh, 1vh) * 100) - 325px)
+      +rwdmax(767)
+        // height: 520px
+        height: calc(100vh - 291px)
+        height: calc((var(--vh, 1vh) * 100) - 291px)
+  .content-list
+    max-width: 500px
+    width: 100%
+    height: calc(100vh - 200px) 
+    height: calc((var(--vh, 1vh) * 100) - 200px) 
+    box-shadow: -10px 2px 20px 2px rgba(0, 0, 0, 0.16)
+    z-index: 1
+    position: relative
+    overflow-y: scroll
+    overflow-x: hidden
+    display: flex
+    flex-direction: column
+    // .scrollbar-inner
+    //   height: calc(100vh - 200px)
+    //   height: calc((var(--vh, 1vh) * 100) - 200px) 
+    //   scrollbar-width: none
+    //   -ms-overflow-style: none
+    //   &::-webkit-scrollbar
+    //     display: none
+    .photo
+      width: 100%
+      &-wrap 
+        padding-bottom: 100%
+        position: relative
+        overflow: hidden
+        img 
+          +posCenter
+    .bottom-block 
+      max-width: calc(100% - 40px)
+      margin: auto auto 40px
+      padding-top: 45px
+      padding-bottom: 80px
+      position: relative
+      display: flex
+      .text
+        h2
+          padding-bottom: 15px
+          color: $color-main
+          font-weight: 700
+          font-size: px(24)
+          line-height: px(28)
+          transition: .3s ease-in-out
+        p
+          line-height: 1.2
+          color: #8a8a8a
+          font-size: px(18)
+      .time
+        margin-right: 25px
+        flex-shrink: 0
+        width: 98px
+        height: 98px
+        color: #fff
+        background-color: #e90483
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        div
+          padding-bottom: 3px
+          text-align: center
+          span 
+            &:first-child
+              font-weight: 700
+              font-size: px(32)
+            &.lv2
+              font-size: px(24)
+            &.lv3
+              font-size: px(20)
+            &:last-child
+              padding-left: 3px
+              font-size: px(16)
+        p 
+          font-weight: bold
+          font-size: px(14)
+          color: #fff
+      .btn-more
+        display: flex
+        align-items: center
+        cursor: pointer
+        position: absolute
+        right: 0
+        bottom: 0
+        span 
+          padding-right: 20px
+          font-size: px(22)
+    +rwdmaxH(800)
+      height: calc(100vh - 155px) 
+      height: calc((var(--vh, 1vh) * 100) - 155px) 
+    +rwdmax(1200)
+      max-width: none 
+      height: 200px
+      background-color: #fff
+      .photo
+        display: none
+      .bottom-block
+        padding: 30px 0
+        justify-content: center
+        .text
+          padding: 10px 0
+          display: flex
+          flex-direction: column
+          p 
+            margin-top: auto
+        .btn-more
+          margin-left: 50px
+          position: static
+          padding: 30px
+          span 
+            display: none
+          .icon
+            width: 20px
+    +rwdmax(767)
+      margin-bottom: 0
+      // margin-top: -20px
+      height: 150px
+      .bottom-block
+        width: 95%
+        max-width: none
+        justify-content: space-between
+        align-items: center
+        margin-right: 0
+        .time
+          margin-right: 15px
+          width: 75px
+          height: 75px
+          div 
+            padding-bottom: 3px
+            span 
+              &:first-child
+                font-size: px(26)
+              &:last-child
+                font-size: px(16)
+          p 
+            font-size: px(10)
+        .text
+          padding: 5px 0
+          max-width: 180px
+          width: 100%
+          h2
+            padding-bottom: 5px
+            line-height: 20px
+            font-size: px(18)
+            // font-size: 26px
+          p
+            font-size: px(16)
+            display: none
+        .btn-more
+          margin-left: 0
+          padding: 30px 40px 30px 30px
+          .icon
+            width: 15px
+
+
+    // 動畫
+    .bottom-block
+      &.out
+        animation: .3s ease-in-out blockOut forwards
+      &.in
+        animation: .3s ease-in-out blockIn forwards
+      
+  @keyframes blockOut
+    0%
+      opacity: 1
+    100%
+      opacity: 0
+      transform: translateX(-100px)
+  
+  @keyframes blockIn
+    0%
+      opacity: 0
+      transform: translateX(100px)
+    100%
+      opacity: 1
+      transform: translateX(0)

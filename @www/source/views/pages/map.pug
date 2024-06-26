@@ -1,0 +1,96 @@
+-
+  var map = [
+    {
+      title: 'Space Invader Street Art',
+      address: '271-275 Gloucester Rd, Causeway Bay',
+      time: '7',
+      lat: '22.2803',
+      lng: '114.183'},
+    {
+      title: 'Mural in alley Causeway Bay',
+      address: '508 Jaffe Rd, United Success Commercial Centre, Causeway Bay',
+      time: '9',
+      lat: '22.38832',
+      lng: '114.19112'},
+    {
+      title: 'Window and Alley',
+      address: '452 Lockhart Rd, Bowrington',
+      time: '10',
+      lat: '22.38124',
+      lng: '114.18993'},
+    {
+      title: 'Mt. Yotei',
+      address: '26/F, L’ Hart, 487 - 489 Lockhart Rd, Causeway Bay',
+      time: '8',
+      lat: '22.38175',
+      lng: '114.18863'},
+    {
+      title: 'View through CWB',
+      address: '16 Causeway Rd, Causeway Bay',
+      time: '4',
+      lat: '22.37927',
+      lng: '114.18674'},
+    {
+      title: 'Space Invader Street Art',
+      address: '271-275 Gloucester Rd, Causeway Bay',
+      time: '7',
+      lat: '22.38572',
+      lng: '114.19535'},
+  ]
+
+doctype html
+html(lang="zh-Hant-HK")
+  // head標籤 & 網站設定
+  head(itemscope='itemscope', itemtype='http://schema.org/WebSite')
+    //共用設定
+    include ../layouts/_head.pug
+    //獨立CSS
+    link(rel="stylesheet", href="../assets/css/map.css")
+
+  body.map(data-page="map")
+    .main-wrapper
+      // 導覽列
+      include ../layouts/_navbar.pug
+      // 主要內容
+      main
+        .common-content
+          .content-wrap
+            .content-map
+              // 初始定位 data-lat / data-lng
+              // 4/26 修改 data-photo 暫時放圖片的地方
+              // 5/13 修改 新增 data-dot
+              // 5/17 修改 新增 data-icon3-mobile
+              // 5/17 修改 新增 data-dot-mobile
+              // 5/22 修改 data-icon2 圓形大圖 128X128
+              // 5/22 修改 data-icon2-mobile 圓形小圖 67X67
+
+              // data-lat="24.133895442125247" data-lng="120.71907471802467"
+              // data-lat="24.158114465997297" data-lng="120.66584587013656"
+              // data-lat="24.19061536647487" data-lng="120.59400849765035"
+              //- data-lat="22.2811814" data-lng="114.1857825"
+              #map(data-lat="22.2811814" data-lng="114.1857825" data-icon="../assets/img/location2.png" data-photo="../assets/img/map.jpg" data-icon2="../assets/img/roll-photo.png" data-icon3="../assets/img/location3.png" data-dot="../assets/img/dot.png" data-icon2-mobile="../assets/img/roll-photo-mobile.png" data-dot-mobile="../assets/img/dot-mobile.png" data-icon3-mobile="../assets/img/location3-mobile.png" 
+              )
+            .content-list
+              // 5/8 修改 整塊
+              .photo
+                .photo-wrap
+                  img(src="../assets/img/img02-410X425.jpg", alt="")
+              .bottom-block 
+                .time 
+                  div 
+                    // 5/20 修改 刪除2個span
+                  // 6/7 修改
+                  p WALK
+                .text 
+                  h2 Leighton Hill
+                  p 2B Broadwood Road, Happy Valley
+                a.btn-more(href="./detail.html")
+                  span more 
+                  .icon
+                    img(src="../assets/img/arrow.png", alt="")
+      // footer
+      include ../layouts/_footer.pug
+  //引入的script
+  include ../layouts/_script.pug
+  // google map
+  include ../layouts/_mapScript.html

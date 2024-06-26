@@ -1,0 +1,115 @@
+//共用
+  
+*
+  outline: none
+
+html
+  font-size: 100%
+  scrollbar-width: thin //for Firefox
+  scrollbar-color: rgba(108, 110, 113, 1) transparent //for Firefox
+  &.scrollbarStyle
+    scrollbar-width: thin //for Firefox
+    scrollbar-color: rgba(108, 110, 113, 1) transparent //for Firefox
+    body
+      //↓↓↓卷軸樣式↓↓↓
+      &::-webkit-scrollbar-track
+        border-radius: 10px
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3)
+      &::-webkit-scrollbar
+        // display: none
+        width: 12px
+        +rwdmax(767)
+          display: none
+      &::-webkit-scrollbar-thumb
+        border-radius: 10px
+        background-color: rgba(108, 110, 113, 1)
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3)
+  //Mac系統以外的設定
+  &:not(.isMac)
+    width: 100vw
+    body
+      width: 100vw
+      overflow-y: auto
+      overflow-x: hidden !important
+      -webkit-overflow-scrolling: touch
+  +rwdmax(1600)
+    font-size: 93.75%
+
+body
+  background-color: #f6f6f6
+  font-family: $openSans
+  
+.swiper-container
+  width: 100%
+  height: 100%
+.swiper-slide
+  text-align: center
+  font-size: 18px
+  background: transparent
+  /* Center slide text vertically */
+  display: -webkit-box
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+  -webkit-box-pack: center
+  -ms-flex-pack: center
+  -webkit-justify-content: center
+  justify-content: center
+  -webkit-box-align: center
+  -ms-flex-align: center
+  -webkit-align-items: center
+  align-items: center
+
+// X
+.cross
+  $w: 22px
+  $h: $w
+
+  padding: 10px
+  width: $w * 2
+  height: $h * 2
+  position: relative
+  // border: solid 1px
+  &:hover
+    div:first-child
+      transform: rotate(90deg)
+    div:last-child
+      transform: rotate(-90deg)
+  div
+    width: $w
+    height: $h
+    position: absolute
+    left: ($w / 2) - 2
+    top: ($h / 2) - 2
+    transition: .5s ease-in-out
+    &::after
+      content: ''
+      position: absolute
+      left: 0
+      top: 0
+      height: $h
+      width: 1px
+      background-color: #000
+  div:first-child
+    &::after
+      left: 50%
+      transform: rotate(-45deg) translateX(-50%)
+  div:last-child
+    &::after
+      left: 50%
+      transform: rotate(45deg) translateX(-50%)
+
+// waypoint動畫
+.waypoint
+  opacity: 0
+  transition: .5s ease-in-out
+  &.show
+    opacity: 1
+
+// 共用內容
+.common-content
+  margin-top: 100px
+  +rwdmax(1200)
+    margin-top: 135px
+  +rwdmax(767)
+    margin-top: 125px

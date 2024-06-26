@@ -1,0 +1,121 @@
+-
+  var detail = [
+    //- {
+    //-   icon: 'icon-location',
+    //-   text: '271-275 Gloucester'},
+    {
+      icon: 'icon-location',
+      text: '271-275 Gloucester Rd, Causeway Bay'},
+    {
+      icon: 'icon-phone1',
+      text: '--'},
+    {
+      icon: 'icon-clock',
+      text: '24 hrs'},
+    {
+      icon: 'icon-home',
+      text: '15 min from Park Lane Hotel'},
+  ]
+
+doctype html
+html(lang="zh-Hant-HK")
+  // head標籤 & 網站設定
+  head(itemscope='itemscope', itemtype='http://schema.org/WebSite')
+    //共用設定
+    include ../layouts/_head.pug
+    //獨立CSS
+    link(rel="stylesheet", href="../assets/css/detail.css")
+
+  body.detail(data-page="detail")
+    .main-wrapper
+      // 導覽列
+      // 此頁的header獨有
+      header.hd
+        .hd-container 
+          a.logo(href="./index.html")
+            img(src="../assets/img/logo-color.png", alt="")
+          a.logo2(href="./index.html")
+            img(src="../assets/img/logo02.png", alt="")
+          a.logo2-mobile(href="./index.html")
+            img(src="../assets/img/logo01.png", alt="")
+          a.back.mobile(href="javascript:;" onClick="history.back(-1)")
+            .back-wrap
+              .btn-back
+                i.icon-arrow-l
+              span Back
+          // 6/6 修改
+          a.go-next.mobile(href="javascript:;")
+            .back-wrap
+              span More
+              .btn-back
+                i.icon-arrow-l
+      // 主要內容
+      main
+        .content
+          article 
+            .text 
+              h2 SPACE INVADER
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultricies integer quis auctor elit sed vulputate mi. Tellus elementum sagittis vitae et leo duis. Feugiat in ante metus dictum at tempor commodo ullamcorper ae.<br><br> Tempus urna et pharetra pharetra massa massa. Nam at lectus urna duis convallis. Eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque. Orci sagittis eu volutpat odio facilisis mauris. Nunc eget lorem dolor sed viverra ipsum. A diam sollicitudin tempor id eu nisl nunc mi. Justo eget magna fermentum iaculis. Orci eu lobortis elementum nibh. Neque ornare aenean euismod elementum nisi quis eleifend quam adipiscing sed viverra ipsum.
+            .photo
+              .photo-wrap 
+                img(src="../assets/img/img03-410X425.jpg", alt="")
+          .map 
+            h6 Location on map
+            .map-content
+              .map-wrap
+                // data-lat="24.133895442125247" data-lng="120.71907471802467"
+                // data-lat="24.158114465997297" data-lng="120.66584587013656"
+                // data-lat="24.19061536647487" data-lng="120.59400849765035"
+
+                // data-lat="22.281733988509085" data-lng="114.1833046353967"
+
+                // 地圖設定 緯度 data-lat / 經度 data-lng
+                // 5/29 修改 data-icon
+                #map(data-lat="24.19061536647487" data-lng="120.59400849765035" data-icon="../assets/img/pin.png")
+              .text
+                ul.detail
+                  each val in detail
+                    li
+                      i(class= val.icon)
+                      p= val.text
+                .time 
+                  div
+                    // 5/20 修改 刪除2個span
+                  // 6/7 修改
+                  p WALK
+                ul.link
+                  li
+                    // 4/26 修改
+                    a.btn-origin(href="javascript:;")
+                      i.icon-send
+                  li
+                    // 4/26 修改
+                    a.btn-share(href="javascript:;")
+                      i.icon-link
+          // 錨點
+          .btn-anchor Location on map
+          
+          // 6/6 修改
+          .btn-bottom
+            a.back.desktop(href="javascript:;" onClick="history.back(-1)")
+              .back-wrap
+                .btn-back
+                  i.icon-arrow-l
+                span Back
+            a.go-next.desktop(href="javascript:;")
+              .back-wrap
+                span More
+                .btn-back
+                  i.icon-arrow-l
+      // 此頁的footer獨有
+      // detail footer
+      footer 
+        a.logo(href="./index.html")
+          img(src="../assets/img/logo-white.png", alt="")
+        p COPYRIGHT 20214 @ THE PARK LANE HONG KONG<br>ALL RIGHTS RESERVED
+      
+  // 引入的script
+  include ../layouts/_script.pug
+  // google map
+  include ../layouts/_mapScript2.html
+  

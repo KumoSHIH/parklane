@@ -79,12 +79,22 @@
           margin-right: 0
         .photo-logo2
           max-width: 295px
-      +rwdmax(410)
-        padding-top: 50px
+      +rwdmax(450)
+        align-items: center
+        margin: 0
         .photo-logo1
           max-width: 200px
         .photo-logo2
-          max-width: 250px
+          max-width: 220px
+      +rwdmaxWmaxH(450, 900)
+        align-items: center
+        margin: 0 auto
+        padding-top: 120px
+      +rwdmaxWmaxH(389, 600)
+        align-items: center
+        margin: 0 auto
+        padding-top: 50px
+
     &-scroll 
       position: absolute
       // bottom: 200px
